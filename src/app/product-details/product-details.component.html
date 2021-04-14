@@ -1,0 +1,38 @@
+<div class="container-fluid">
+    <div class="card" *ngIf="product">
+        <div class="card-header">
+            Details of {{ product.productName}}
+        </div>
+    
+        <div class="card-body">
+            <div class="row">
+                    <div class="cols-sm-6">
+                        <li> Product Name: {{ product.productId }} </li>
+                        <li> Product Name: {{ product.productName }} </li>
+                        <li> Product Code: {{ product.productCode | ConvertToSpacepipe : '-'}} </li>
+                        <li> Product Release Date : {{ product.releaseDate }} </li>
+                        <li> Product Price : {{ product.price  | currency:'USDs' : 'symbol' : '1.2-3' }} </li>
+                    </div>
+    
+                    <div class=" col-md-6 ">
+                        <img 
+                                    [src]    ="product.imageUrl" 
+                                    [title]  ="product.productName | uppercase "
+                                    [style.width.px]  ="imageWidth"
+                                    [style.height.px] ="imageHeight"
+                                    [style.margin.px]="imagemargin"
+    
+                        >
+                    </div>
+            </div>
+            
+        </div>
+    
+        <div class="card-footer">
+            <button class="btn btn-secondary"
+                    (click)="goBack()">
+                <span   class="fa fa-backward" > Back</span>
+            </button>
+        </div>
+    </div>
+</div>
